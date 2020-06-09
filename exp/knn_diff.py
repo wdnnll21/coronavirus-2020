@@ -33,8 +33,8 @@ NORMALIZE = True
 confirmed = os.path.join(
     BASE_PATH, 
     'csse_covid_19_time_series',
-    'time_series_19-covid-Confirmed.csv')
-confirmed = data.load_csv_data(confirmed)
+    'time_series_19-covid-.csv')
+confirmed = data.load_csv_data("COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
 features = []
 targets = []
 
@@ -82,5 +82,5 @@ for _dist in ['minkowski', 'manhattan']:
             predictions[val] = {}
         predictions[val][_dist] = label.tolist()
 
-with open('results/knn_diff.json', 'w') as f:
+with open('exp/results/knn_diff.json', 'w') as f:
     json.dump(predictions, f, indent=4)
